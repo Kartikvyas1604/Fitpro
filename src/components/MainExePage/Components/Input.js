@@ -1,66 +1,84 @@
-import React, { useState, useEffect } from 'react'
+// Input.jsx
+import React, { useContext } from "react";
+import { WorkoutContext } from "./WorkoutContext";
 
-const Inputf = () => {
-  const [time, setTime] = useState("")
-  const [equipments, setEquipment] = useState("")
-  const [muscle, setMuscle] = useState("")
-  const [fitnesslevel, setFitnesslevel] = useState("")
-  const [fitnessgoal, setFitnessgoal] = useState("")
+const timeOptions = ["", "10 min", "15 min", "20 min", "25 min", "30 min"];
+
+const Input = () => {
+  const {
+    time,
+    setTime,
+    equipments,
+    setEquipments,
+    muscle,
+    setMuscle,
+    fitnessLevel,
+    setFitnessLevel,
+    fitnessGoal,
+    setFitnessGoal,
+    loading,
+    setLoading,
+    error,
+    setError,
+    setWorkoutData,
+  } = useContext(WorkoutContext);
 
   const Timeinput = (e) => {
     setTime(e.target.value);
   };
 
   const Equipments = (e) => {
-    setEquipment(e.target.value);
+    setEquipments(e.target.value);
   };
+
   const Muscles = (e) => {
     setMuscle(e.target.value);
   };
+
   const Fitnesslevel = (e) => {
-    setFitnesslevel(e.target.value);
+    setFitnessLevel(e.target.value);
   };
+
   const Fitnessgoal = (e) => {
-    setFitnessgoal(e.target.value);
+    setFitnessGoal(e.target.value);
   };
 
-  const timeOptions = ["", "10 min", "15 min", "20 min", "25 min", "30 min"]
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
 
-  useEffect(() => {
+    const url = `https://workout-planner1.p.rapidapi.com/customized?time=${time}&equipment=${equipments}&muscle=${muscle}&fitness_level=${fitnessLevel}&fitness_goals=${fitnessGoal}`;
+
     const options = {
-      method: 'GET',
-      url: 'https://workout-planner1.p.rapidapi.com/customized',
-      params: {
-        time: time,
-        equipment: equipments,
-        muscle: muscle,
-        fitness_level: fitnesslevel,
-        fitness_goals: fitnessgoal
-      },
+      method: "GET",
       headers: {
-        'X-RapidAPI-Key': '8d0b924b57mshee7866c14865d06p1a3709jsn02e7e13f1e92',
-        'X-RapidAPI-Host': 'workout-planner1.p.rapidapi.com'
-      }
+        "X-RapidAPI-Key": "05173b258cmsh7d934619123d1a7p13a3eejsn01f56032324d",
+        "X-RapidAPI-Host": "workout-planner1.p.rapidapi.com",
+      },
     };
 
-    fetch(options.url, {
-      method: options.method,
-      params: options.params,
-      headers: options.headers
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
-  }, [time,equipments,muscle,fitnesslevel,fitnessgoal])
+    fetch(url, options)
+      .then((response) => response.json())
+      .then((data) => {
+        setWorkoutData(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError(error);
+        setLoading(false);
+      });
+  };
 
   return (
-    <WorkoutContext.Provider value={workoutData}>
-    <form onSubmit={Timeinput}>
+    <form onSubmit={handleSubmit}>
       <div>
         <label>Time:</label>
         <select value={time} onChange={Timeinput}>
           {timeOptions.map((option, index) => (
-            <option key={index} value={option}>{option}</option>
+            <option key={index} value={option}>
+              {option}
+            </option>
           ))}
         </select>
       </div>
@@ -68,53 +86,56 @@ const Inputf = () => {
         <label>Select Equipments:</label>
         <select value={equipments} onChange={Equipments}>
           <option value="">None</option>
-          <option value="option1">Dumbbells</option>
-          <option value="option2">punching bag</option>
-          <option value="option3">pull up bar</option>
-          <option value="option4">battle rope</option>
-          <option value="option5">Barbels</option>
-          <option value="option6">Medicine ball</option>
-          <option value="option7">plates</option>
+          <option value="dumbbells">Dumbbells</option>
+          <option value="Punching Bag">Punching Bag</option>
+          <option value="Pull Up Bar">Pull Up Bar</option>
+          <option value="Battle Rope">Battle Rope</option>
+          <option value="Barbells">Barbells</option>
+          <option value="Medicine Ball">Medicine Ball</option>
+          <option value="Plates">Plates</option>
         </select>
       </div>
       <div>
-      <label>Muscles:</label>
-      <select value={muscle} onChange={Muscles}>
+        <label>Muscles:</label>
+        <select value={muscle} onChange={Muscles}>
           <option value="">None</option>
-          <option value="option1">Biceps</option>
-          <option value="option2">Back</option>
-          <option value="option3">Chest</option>
-          <option value="option4">Legs</option>
-          <option value="option5">Triceps</option>
-          <option value="option6">Forearms</option>
-          <option value="option7">Abs</option>
-          <option value="option8">Lats</option>
-          <option value="option9">Calf</option>
+          <option value="biceps">Biceps</option>
+          <option value="Back">Back</option>
+          <option value="Chest">Chest</option>
+          <option value="Legs">Legs</option>
+          <option value="Triceps">Triceps</option>
+          <option value="Forearms">Forearms</option>
+          <option value="Abs">Abs</option>
+          <option value="Lats">Lats</option>
+          <option value="Calf">Calf</option>
         </select>
-        </div>
-        <div>
-        <label>Fitness_level:</label>
-        <select value={fitnesslevel} onChange={Fitnesslevel}>
+      </div>
+      <div>
+        <label>Fitness Level:</label>
+        <select value={fitnessLevel} onChange={Fitnesslevel}>
           <option value="">None</option>
-          <option value="option1">Begineer</option>
-          <option value="option2">Intermediate</option>
-          <option value="option3">Advanced</option>
+          <option value="beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
         </select>
-        </div>
-        <div className={styles.formbr}>
-          <label>Fitness Goal:</label>
-          <select value={fitnessgoal} onChange={Fitnessgoal} required= "true">
-            <option value="">None</option>
-            <option value="option1">Weight Loss</option>
-            <option value="option2">Muscles building</option>
-            <option value="option3">Balance and Coordination</option>
-            <option value="option4">Strength</option>
-          </select>
-       </div>
-      <button type="submit">Submit</button>
+      </div>
+      <div>
+        <label>Fitness Goal:</label>
+        <select value={fitnessGoal} onChange={Fitnessgoal} required>
+          <option value="">None</option>
+          <option value="weight Loss">Weight Loss</option>
+          <option value="Muscle Building">Muscle Building</option>
+          <option value="Balance and Coordination">
+            Balance and Coordination
+          </option>
+          <option value="Strength">Strength</option>
+        </select>
+      </div>
+      <button type="submit" disabled={loading}>
+        Submit
+      </button>
     </form>
-    </WorkoutContext.Provider>
-  )
-}
+  );
+};
 
-export default Inputf
+export default Input;

@@ -1,84 +1,59 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Button, Stack, Typography } from '@mui/material'
-import { useContext } from 'react'
-import WorkoutContext from './WorkoutContextProvider/WorkoutContext'
+import * as React from 'react';
+import { useContext } from "react";
+import { useWorkoutContext } from "./WorkoutContext";
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
 
-const Card = () => {
-  const workoutData = useContext(WorkoutContext);
+const WorkoutCard = ({ exercise }) => {
+  return (
+    <Card sx={{ maxWidth: 345 }}>
+      <CardActionArea>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {exercise.Exercise}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Sets: {exercise.Sets}, Reps: {exercise.Reps}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  );
+};
+
+const CardList = ({ exercises }) => {
+  return (
+    <>
+      {exercises.map((exercise, index) => (
+        <WorkoutCard key={index} exercise={exercise} />
+      ))}
+    </>
+  );
+};
+
+export default function ActionAreaCard() {
+  const { workoutData } = useWorkoutContext();
+
+  if (!workoutData) {
+    return <div>Loading...</div>; // or any other loading indicator
+  }
 
   return (
     <div>
-      <Typography variant="h4" mb="10px"
-        sx={{ fontSize: { lg: '32px', xs: '24px' } }} textTransform="capitalize"
-      >
-        Warm Up
-      </Typography>
-      {workoutData.WarmUp.map((exercise, index) => (
-        <Link className="exercise-card" to={`/exercise/${exercise.Exercise._id}`} key={exercise.Exercise._id}>
-          <img src={exercise.Exercise.gifUrl} alt={exercise.Exercise.name} loading="lazy" />
-          <Stack direction="row"
-          >
-            <Button sx={{ ml: '21px', color: '#fff', background: '#FFA9A9', fontSize: '14px', borderRadius: '20px', textTransform: 'capitalize' }}>
-              {exercise.Exercise.bodyPart}
-            </Button>
-            <Button sx={{ ml: '21px', color: '#fff', background: '#FCC757', fontSize: '14px', borderRadius: '20px', textTransform: 'capitalize' }}>
-              {exercise.Exercise.target}
-            </Button>
-          </Stack>
-          <Typography ml="21px" color="#000" fontWeight="bold" sx={{ fontSize: { lg: '24px', xs: '20px' } }} mt="11px" pb="10px" textTransform="capitalize"
-          >
-            {exercise.Exercise.name}
-          </Typography>
-        </Link>
-      ))}
-      <Typography variant="h4" mb="10px"
-        sx={{ fontSize: { lg: '32px', xs: '24px' } }} textTransform="capitalize"
-      >
-        Exercises
-      </Typography>
-      {workoutData.Exercises.map((exercise, index) => (
-        <Link className="exercise-card" to={`/exercise/${exercise.Exercise._id}`} key={exercise.Exercise._id}>
-          <img src={exercise.Exercise.gifUrl} alt={exercise.Exercise.name} loading="lazy" />
-          <Stack direction="row"
-          >
-            <Button sx={{ ml: '21px', color: '#fff', background: '#FFA9A9', fontSize: '14px', borderRadius: '20px', textTransform: 'capitalize' }}>
-              {exercise.Exercise.bodyPart}
-            </Button>
-            <Button sx={{ ml: '21px', color: '#fff', background: '#FCC757', fontSize: '14px', borderRadius: '20px', textTransform: 'capitalize' }}>
-              {exercise.Exercise.target}
-            </Button>
-          </Stack>
-          <Typography ml="21px" color="#000" fontWeight="bold" sx={{ fontSize: { lg: '24px', xs: '20px' } }} mt="11px" pb="10px" textTransform="capitalize"
-          >
-            {exercise.Exercise.name}
-          </Typography>
-        </Link>
-      ))}
-      <Typography variant="h4" mb="10px"
-        sx={{ fontSize: { lg: '32px', xs: '24px' } }} textTransform="capitalize"
-      >
-        Cool Down
-      </Typography>
-      {workoutData.CoolDown.map((exercise, index) => (
-        <Link className="exercise-card" to={`/exercise/${exercise.Exercise._id}`} key={exercise.Exercise._id}>
-          <img src={exercise.Exercise.gifUrl} alt={exercise.Exercise.name} loading="lazy" />
-          <Stack direction="row"
-          >
-            <Button sx={{ ml: '21px', color: '#fff', background: '#FFA9A9', fontSize: '14px', borderRadius: '20px', textTransform: 'capitalize' }}>
-              {exercise.Exercise.bodyPart}
-            </Button>
-            <Button sx={{ ml: '21px', color: '#fff', background: '#FCC757', fontSize: '14px', borderRadius: '20px', textTransform: 'capitalize' }}>
-              {exercise.Exercise.target}
-            </Button>
-          </Stack>
-          <Typography ml="21px" color="#000" fontWeight="bold" sx={{ fontSize: { lg: '24px', xs: '20px' } }} mt="11px" pb="10px" textTransform="capitalize"
-          >
-            {exercise.Exercise.name}
-          </Typography>
-        </Link>
-      ))}
+      <div>
+        <h3>Warm Up</h3>
+        {workoutData["Warm Up"] && <CardList exercises={workoutData["Warm Up"]} />}
+      </div>
+      <div>
+        <h3>Exercises</h3>
+        {workoutData.Exercises && <CardList exercises={workoutData.Exercises} />}
+      </div>
+      <div>
+        <h3>Cool Down</h3>
+        {workoutData["Cool Down"] && <CardList exercises={workoutData["Cool Down"]} />}
+      </div>
     </div>
-  )
+  );
 }
-export default Card;

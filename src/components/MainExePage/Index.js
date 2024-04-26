@@ -1,10 +1,20 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import App from './App'
+// main.jsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { WorkoutContextProvider } from './Components/WorkoutContext';
+import Input from './Components/Input';
+import Card from './Components/card';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-)
+const App1 = () => {
+  return (
+    <WorkoutContextProvider>
+      <div>
+        <h1>Workout Planner</h1>
+        <Input />
+        <Card />
+      </div>
+    </WorkoutContextProvider>
+  );
+};
+
+export default App1;

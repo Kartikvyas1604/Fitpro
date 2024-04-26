@@ -6,6 +6,7 @@ import './App.css';
 import ExerciseDetail from './components/Individualexe/pages/ExerciseDetail';
 import Home from './components/Individualexe/pages/Home';
 import Navbar from './components/Navbar';
+import App1 from "./components/MainExePage/Index";
 import BMICalculator from './components/bmicalculator';
 import CalorieCounter from './components/CalorieCounter';
 import Login from './components/Login/Login';
@@ -21,6 +22,7 @@ const App = () => (
       <Route path='/CalorieCounter' element={<CalorieCounter />} />
       <Route path='/Login' element={<Login />} />
       <Route path='/Signup' element={<Signup />} />
+      <Route path='/App1' element={<App1 />} />
     </Routes>
   </Box>
 );
