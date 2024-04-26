@@ -12,6 +12,7 @@ import CalorieCounter from './components/CalorieCounter';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup'
 
+
 const App = () => (
   <Box width="400px" sx={{ width: { xl: '1488px' } }} m="auto">
     <Navbar />
