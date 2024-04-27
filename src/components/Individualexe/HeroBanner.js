@@ -1,13 +1,13 @@
 import React from 'react';
 import { Box, Stack, Typography } from '@mui/material';
-import BMICalculator from '../bmicalculator';
-import CalorieCounter from '../CalorieCounter';
+import BMICalculator from '../Components-2/bmicalculator';
+import CalorieCounter from '../Components-2/CalorieCounter';
 
 import HeroBannerImage from '../../assets/images/banner.png';
 
 const HeroBanner = () => (
   <Box sx={{ mt: { lg: '212px', xs: '70px' }, ml: { sm: '50px' } }} position="relative" p="20px">
-    <Typography color="#FF2625" fontWeight="600" fontSize="26px">Fitness Club</Typography>
+    <Typography color = '#7247CE' fontWeight="600" fontSize="26px">Fit-Pro</Typography>
     <Typography fontWeight={700} sx={{ fontSize: { lg: '44px', xs: '40px' } }} mb="23px" mt="30px">
       Sweat, Smile <br />
       And Repeat
@@ -16,14 +16,14 @@ const HeroBanner = () => (
       Check out the most effective exercises personalized to you
     </Typography>
     <Stack>
-      <a href="#exercises" style={{ marginTop: '45px', textDecoration: 'none', width: '200px', textAlign: 'center', background: '#FF2625', padding: '14px', fontSize: '22px', textTransform: 'none', color: 'white', borderRadius: '4px' }}>Explore Exercises</a>
-      <a href="BMICalculator" style={{ marginTop: '45px', textDecoration: 'none', width: '200px', textAlign: 'center', background: '#FF2625', padding: '14px', fontSize: '22px', textTransform: 'none', color: 'white', borderRadius: '4px' }}>Bmi Calculator</a>
-      <a href="CalorieCounter" style={{ marginTop: '45px', textDecoration: 'none', width: '200px', textAlign: 'center', background: '#FF2625', padding: '14px', fontSize: '22px', textTransform: 'none', color: 'white', borderRadius: '4px' }}>CalorieCounter</a>
+      <a href="#exercises" style={{ marginTop: '45px', textDecoration: 'none', width: '200px', textAlign: 'center', background :'#7247CE', padding: '14px', fontSize: '22px', textTransform: 'none', color: 'white', borderRadius: '4px' }}>Explore Exercises</a>
+      <a href="BMICalculator" style={{ marginTop: '45px', textDecoration: 'none', width: '200px', textAlign: 'center', background :'#7247CE', padding: '14px', fontSize: '22px', textTransform: 'none', color: 'white', borderRadius: '4px' }}>Bmi Calculator</a>
+      <a href="CalorieCounter" style={{ marginTop: '45px', textDecoration: 'none', width: '200px', textAlign: 'center', background :'#7247CE', padding: '14px', fontSize: '22px', textTransform: 'none', color: 'white', borderRadius: '4px' }}>CalorieCounter</a>
     </Stack>
-    <Typography fontWeight={600} color="#FF2625" sx={{ opacity: '0.1', display: { lg: 'block', xs: 'none' }, fontSize: '200px' }}>
+    <Typography fontWeight={600} color = '#7247CE' sx={{ opacity: '0.1', display: { lg: 'block', xs: 'none' }, fontSize: '200px' }}>
       Exercise
     </Typography>
-    <img src={HeroBannerImage} alt="hero-banner" className="hero-banner-img" />
+    <img src={HeroBannerImage} alt="hero-banner" className="hero-banner-img" style={{width: "700px" , height: "700px" , marginTop:"00px", marginRight :"100px"}} />
   </Box>
 );
 
