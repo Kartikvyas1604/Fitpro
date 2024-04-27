@@ -30,14 +30,14 @@
 .footer .error {
   font-weight: bold;
   font-size: 0.875rem;
-  color: #FF2625;
+  color: #7247ce;
   text-align: center;
 }
 
 .footer button {
   outline: none;
   border: none;
-  background-color: #FF2625;
+  background-color: #7247ce;
   color: #fff;
   border-radius: 5px;
   font-weight: bold;
@@ -63,7 +63,7 @@
 
 .footer p span a {
   font-weight: bold;
-  color: #FF2625;
+  color: #7247ce;
   letter-spacing: 1px;
   font-size: 1rem;
   text-decoration: none;
