@@ -1,6 +1,9 @@
 import React from "react";
-import { Box, Stack, Typography } from "@mui/material";
-import eroBannerImage from "../../../assets/images/banner1.png";
+import { Box, Card, Typography } from "@mui/material";
+import HeroBannerImage from "../../../assets/images/main1-ai.png";
+import Card2 from "./Card2";
+import PCard from "./Pricing";
+import Footer from "../../Components2/footer";
 
 const MainPage = () => (
   <Box
@@ -8,8 +11,8 @@ const MainPage = () => (
     position="relative"
     p="20px"
   >
-    <Typography color="#7247CE" fontWeight="700" fontSize="32px">
-      FIT-PRO
+    <Typography color="#7247CE" fontWeight="600" fontSize="26px">
+      Fitness Club
     </Typography>
     <Typography
       fontWeight={700}
@@ -35,22 +38,33 @@ const MainPage = () => (
       Exercise
     </Typography>
     <img
-      src={
-        eroBannerImage
-      }
+      src={'HeroBannerImage'}
       alt="hero-banner"
       className="hero-banner-img"
       style={{ width: "600px", height: "700px" ,paddingTop:'50px'}}
     />
     <Typography 
-    fontWeight={"300px"}
-    
-    fontSize="100px"
     align="center"
-    style={{background : "#7247CE", color:"#000"}}
+    style={{color: "black",
+    fontSize: "100px",
+    fontWeight: "50px",
+    wordWrap: "break-word",
+    marginTop:"100px"
+  }}
     >
       Feature
     </Typography>
+    <Typography>
+      <Card2/>
+    </Typography>
+    <Typography>
+      <PCard/>
+    </Typography>
+    <Typography>
+      <Footer/>
+    </Typography>
+
+ 
 
   </Box>
 );

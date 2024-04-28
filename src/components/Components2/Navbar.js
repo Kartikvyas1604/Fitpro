@@ -12,12 +12,14 @@ import Logo from "../../assets/images/Logo.png";
 
 const Navbar = () => {
   return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light-emphasis fs-4">
+      <div className="container-fluid">
         <img src={Logo} alt="Logo" />
-        <a class="navbar-brand" href={Home}></a>
+        <Link className="navbar-brand fs-4" to="/">
+          Fit-Pro
+        </Link>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNavDropdown"
@@ -25,28 +27,28 @@ const Navbar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item">
+        <div className="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul className="navbar-nav">
+            <li className="nav-item">
               <Link to="/" className="nav-link">
                 Home
               </Link>
             </li>
-            <li class="nav-item">
+            <li className="nav-item">
               <Link to="/WpApp" className="nav-link">
                 WpApp
               </Link>
             </li>
-            <li class="nav-item">
+            <li className="nav-item">
               <Link to="/Individualexe" className="nav-link">
                 Individualexe
               </Link>
             </li>
-            <li class="nav-item dropdown">
+            <li className="nav-item dropdown fs-4">
               <a
-                class="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle"
                 href="#"
                 id="navbarDropdownMenuLink"
                 role="button"
@@ -56,7 +58,7 @@ const Navbar = () => {
                 More
               </a>
               <ul
-                class="dropdown-menu"
+                className="dropdown-menu fs-4"
                 aria-labelledby="navbarDropdownMenuLink"
               >
                 <li>
@@ -70,7 +72,7 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Meal-Planner
                   </a>
                 </li>

@@ -4,7 +4,7 @@ import { WorkoutContext } from "./WorkoutContext";
 import './Input1.css'
 import { TextField } from "@mui/material"
 
-const timeOptions = ["", "10 min", "15 min", "20 min", "25 min", "30 min"];
+const timeOptions = ["", "10 min", "15 min", "20 min", "25 min", "30 min" , "35 min" , "40 min"];
 
 const Input = () => {
   const {
