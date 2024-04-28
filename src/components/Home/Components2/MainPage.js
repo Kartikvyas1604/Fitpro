@@ -8,8 +8,8 @@ const MainPage = () => (
     position="relative"
     p="20px"
   >
-    <Typography color="#7247CE" fontWeight="600" fontSize="26px">
-      Fitness Club
+    <Typography color="#7247CE" fontWeight="700" fontSize="32px">
+      FIT-PRO
     </Typography>
     <Typography
       fontWeight={700}
@@ -42,6 +42,16 @@ const MainPage = () => (
       className="hero-banner-img"
       style={{ width: "600px", height: "700px" ,paddingTop:'50px'}}
     />
+    <Typography 
+    fontWeight={"300px"}
+    
+    fontSize="100px"
+    align="center"
+    style={{background : "#7247CE", color:"#000"}}
+    >
+      Feature
+    </Typography>
+
   </Box>
 );
 

@@ -1,11 +1,10 @@
 // Card.jsx
 import React, { useContext } from "react";
 import { useWorkoutContext } from "./WorkoutContext";
-
+import { Button, Stack, Typography } from "@mui/material";
 
 const Card = () => {
   const { workoutData } = useWorkoutContext();
-
   return (
     <div>
       {workoutData && (
@@ -13,13 +12,35 @@ const Card = () => {
           <h2>Workout Data</h2>
           <div>
             <h3>Warm Up</h3>
-            <ul>
               {workoutData["Warm Up"].map((exercise, index) => (
-                <li key={index}>
-                  {exercise.Exercise} - {exercise.Time}
-                </li>
+              <>
+                  <Stack direction="row" key={index}>
+                    <Button
+                      sx={{
+                        ml: "21px",
+                        color: "#fff",
+                        background: "#FFA9A9",
+                        fontSize: "14px",
+                        borderRadius: "20px",
+                        textTransform: "capitalize",
+                      }}
+                    >
+                      {exercise.Time}
+                    </Button>
+                  </Stack>
+                  <Typography
+                    ml="21px"
+                    color="#000"
+                    fontWeight="bold"
+                    sx={{ fontSize: { lg: "24px", xs: "20px" } }}
+                    mt="11px"
+                    pb="10px"
+                    textTransform="capitalize"
+                  >
+                    {exercise.Exercise}
+                  </Typography>
+                  </>
               ))}
-            </ul>
           </div>
           <div>
             <h3>Exercises</h3>
