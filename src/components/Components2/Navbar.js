@@ -5,8 +5,8 @@ import Login from "../Login/Login";
 import Individualexe from "../Individualexe/pages/Individual-Exe";
 import Home from "../Home/Home";
 import WpApp from "../MainExePage/App";
-import BMICalculator from "./bmicalculator"
-import CalorieCounter from "./CalorieCounter"
+import BMICalculator from "./bmicalculator";
+import CalorieCounter from "./CalorieCounter";
 
 import Logo from "../../assets/images/Logo.png";
 
@@ -15,9 +15,7 @@ const Navbar = () => {
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <img src={Logo} alt="Logo" />
-        <a class="navbar-brand" href={Home}>
-          Fit-Pro
-        </a>
+        <a class="navbar-brand" href={Home}></a>
         <button
           class="navbar-toggler"
           type="button"
@@ -32,19 +30,19 @@ const Navbar = () => {
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href={Home}>
+              <Link to="/" className="nav-link">
                 Home
-              </a>
+              </Link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href={WpApp}>
-                Workout-Plan
-              </a>
+              <Link to="/WpApp" className="nav-link">
+                WpApp
+              </Link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href={Individualexe}>
-                Individual-Exe
-              </a>
+              <Link to="/Individualexe" className="nav-link">
+                Individualexe
+              </Link>
             </li>
             <li class="nav-item dropdown">
               <a
@@ -62,14 +60,14 @@ const Navbar = () => {
                 aria-labelledby="navbarDropdownMenuLink"
               >
                 <li>
-                  <a class="dropdown-item" href={CalorieCounter}>
-                    Calorie-Counter
-                  </a>
+                  <Link to="/CalorieCounter" className="nav-link">
+                    CalorieCounter
+                  </Link>
                 </li>
                 <li>
-                  <a class="dropdown-item" href={BMICalculator}>
-                    BMI-Calculator
-                  </a>
+                  <Link to="/BMICalculator" className="nav-link">
+                    BMICalculator
+                  </Link>
                 </li>
                 <li>
                   <a class="dropdown-item" href="#">

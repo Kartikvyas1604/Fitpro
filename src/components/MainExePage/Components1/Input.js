@@ -1,6 +1,8 @@
 // Input.jsx
 import React, { useContext } from "react";
 import { WorkoutContext } from "./WorkoutContext";
+import './Input1.css'
+import { TextField } from "@mui/material"
 
 const timeOptions = ["", "10 min", "15 min", "20 min", "25 min", "30 min"];
 
@@ -53,7 +55,7 @@ const Input = () => {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "05173b258cmsh7d934619123d1a7p13a3eejsn01f56032324d",
+        "X-RapidAPI-Key": 'f2f89d1656msh1b82dec932dc586p1d8a3djsn904ec2d93058',
         "X-RapidAPI-Host": "workout-planner1.p.rapidapi.com",
       },
     };
@@ -72,7 +74,7 @@ const Input = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
+      <div className="input-feild  time">
         <label>Time:</label>
         <select value={time} onChange={Timeinput}>
           {timeOptions.map((option, index) => (
@@ -82,9 +84,10 @@ const Input = () => {
           ))}
         </select>
       </div>
-      <div>
+      <div className="input-feild equip">
         <label>Select Equipments:</label>
-        <select value={equipments} onChange={Equipments}>
+        <select value={equipments} onChange={Equipments} 
+        >
           <option value="">None</option>
           <option value="dumbbells">Dumbbells</option>
           <option value="Punching Bag">Punching Bag</option>
@@ -95,7 +98,7 @@ const Input = () => {
           <option value="Plates">Plates</option>
         </select>
       </div>
-      <div>
+      <div className="input-feild muscles">
         <label>Muscles:</label>
         <select value={muscle} onChange={Muscles}>
           <option value="">None</option>
@@ -110,7 +113,7 @@ const Input = () => {
           <option value="Calf">Calf</option>
         </select>
       </div>
-      <div>
+      <div className="input-feild fit-lev">
         <label>Fitness Level:</label>
         <select value={fitnessLevel} onChange={Fitnesslevel}>
           <option value="">None</option>
@@ -119,7 +122,7 @@ const Input = () => {
           <option value="Advanced">Advanced</option>
         </select>
       </div>
-      <div>
+      <div className="input-feild goal">
         <label>Fitness Goal:</label>
         <select value={fitnessGoal} onChange={Fitnessgoal} required>
           <option value="">None</option>
@@ -131,9 +134,22 @@ const Input = () => {
           <option value="Strength">Strength</option>
         </select>
       </div>
-      <button type="submit" disabled={loading}>
+      <div className="input-feild">
+      <button type="submit" disabled={loading}
+       style={{
+        textDecoration: "none",
+        width: "400px",
+        textAlign: "center",
+        background: "#7247CE",
+        fontSize: "22px",
+        textTransform: "none",
+        color: "white",
+        borderRadius: "8px",
+      }}
+      >
         Submit
       </button>
+      </div>
     </form>
   );
 };

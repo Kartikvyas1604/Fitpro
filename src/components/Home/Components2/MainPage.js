@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Stack, Typography } from "@mui/material";
-import eroBannerImage from "../../../assets/images/banner.png";
+import eroBannerImage from "../../../assets/images/banner1.png";
 
 const MainPage = () => (
   <Box
@@ -40,7 +40,7 @@ const MainPage = () => (
       }
       alt="hero-banner"
       className="hero-banner-img"
-      style={{ width: "1000px", height: "1000px" }}
+      style={{ width: "600px", height: "700px" ,paddingTop:'50px'}}
     />
   </Box>
 );
