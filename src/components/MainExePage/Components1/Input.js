@@ -55,7 +55,7 @@ const Input = () => {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": 'e2901dc30amsh84e12eb2019bb1cp1bd5bajsnf86f1cb3a44b',
+        "X-RapidAPI-Key": '2c35e2af3fmsh38a6733eadb7e41p1dd52ajsn94aecce0f79f',
         "X-RapidAPI-Host": "workout-planner1.p.rapidapi.com",
       },
     };

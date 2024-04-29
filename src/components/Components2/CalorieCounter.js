@@ -36,6 +36,7 @@ const foodData = [
   { name: "butter chicken", calories: 200 },
   { name: "butter naan", calories: 25 },
   { name: "tandori roti", calories: 200 },
+  { name: "gulab jamun", calories: 120 },
 ];
 
 function CalorieCounter() {
