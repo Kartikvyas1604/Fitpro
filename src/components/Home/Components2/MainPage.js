@@ -1,6 +1,6 @@
 import React from "react";
-import { Box, Card, Typography } from "@mui/material";
-import HeroBannerImage from "../../../assets/images/main1-ai.png";
+import { Box, Typography } from "@mui/material";
+import HeroBannerImage from "../../../assets/images/banner1.png";
 import Card2 from "./Card2";
 import PCard from "./Pricing";
 import Footer from "../../Components2/footer";
@@ -38,34 +38,20 @@ const MainPage = () => (
       Exercise
     </Typography>
     <img
-      src={'HeroBannerImage'}
+      src={HeroBannerImage}
       alt="hero-banner"
       className="hero-banner-img"
-      style={{ width: "600px", height: "700px" ,paddingTop:'50px'}}
+      style={{ width: "600px", height: "700px", paddingTop: "50px" }}
     />
-    <Typography 
-    align="center"
-    style={{color: "black",
-    fontSize: "100px",
-    fontWeight: "50px",
-    wordWrap: "break-word",
-    marginTop:"100px"
-  }}
-    >
-      Feature
+    <Typography>
+      <Card2 />
     </Typography>
     <Typography>
-      <Card2/>
+      <PCard />
     </Typography>
     <Typography>
-      <PCard/>
+      <Footer />
     </Typography>
-    <Typography>
-      <Footer/>
-    </Typography>
-
- 
-
   </Box>
 );
 

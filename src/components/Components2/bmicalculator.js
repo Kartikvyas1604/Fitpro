@@ -81,6 +81,7 @@ const BMICalculator = () => {
             textTransform: "none",
             color: "white",
             borderRadius: "8px",
+            marginLeft: "500px",
           }}
         >
           Calculate BMI

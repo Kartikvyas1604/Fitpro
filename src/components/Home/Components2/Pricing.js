@@ -3,6 +3,7 @@ import "./Pricing.css"
 const PCard = () => {
   return (
     <div className='Bigdiv'>
+      <h1 style={{fontSize:"50px" , marginBottom:"20px"}}>Pricing</h1>
       {/* Row with four side-by-side cards
       
       <li>BMI Calculator</li>

@@ -7,7 +7,7 @@ import Home from "../Home/Home";
 import WpApp from "../MainExePage/App";
 import BMICalculator from "./bmicalculator";
 import CalorieCounter from "./CalorieCounter";
-import MealPlanner from "./Mealplanner"
+import MealPlanner from "./Mealplanner";
 
 import Logo from "../../assets/images/Logo.png";
 
@@ -16,7 +16,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-light-emphasis fs-4">
       <div className="container-fluid">
         <img src={Logo} alt="Logo" />
-        <Link className="navbar-brand fs-4" to="/">
+        <Link className="navbar-brand fs-4" to="/Home">
           Fit-Pro
         </Link>
         <button
@@ -33,7 +33,7 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link to="/" className="nav-link">
+              <Link to="/Home" className="nav-link">
                 Home
               </Link>
             </li>

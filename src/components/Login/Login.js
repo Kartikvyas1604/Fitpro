@@ -6,7 +6,7 @@ import { async } from "@firebase/util";
 import Exercises from "../Individualexe/Exercises";
 
 import InputControl from "../InputControl/InputControl";
-import { auth } from "../../firebase";
+import { auth } from "../../firebase.config";
 
 import styles from "./Login.module.css";
 
@@ -30,7 +30,7 @@ function Login() {
     signInWithEmailAndPassword(auth, values.email, values.pass)
       .then(async (res) => {
         setSubmitButtonDisabled(false);
-        
+
         navigate("/");
       })
       .catch((err) => {

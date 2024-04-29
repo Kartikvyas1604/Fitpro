@@ -1,9 +1,21 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+//import R { useState } from "react";
+import { BsFillShieldLockFill, BsTelephoneFill } from "react-icons/bs";
+import OtpInput from "otp-input-react";
+import { CgSpinner } from "react-icons/cg";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+import { auth } from "../../firebase.config";
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import toast, { Toaster } from "react-hot-toast";
+import { Navigate } from "react-router-dom";
+//import "./Login.css";
+import { TextField } from "@mui/material";
 
 import InputControl from "../InputControl/InputControl";
-import { auth } from "../../firebase";
+//import { auth } from "../../firebase";
 
 import styles from "./Signup.module.css";
 
@@ -16,7 +28,63 @@ function Signup() {
   });
   const [errorMsg, setErrorMsg] = useState("");
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
+  const [otp, setOtp] = useState("");
+  const [ph, setPh] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [showOTP, setShowOTP] = useState(false);
+  const [user, setUser] = useState(null);
 
+  function onCaptchVerify() {
+    if (!window.recaptchaVerifier) {
+      window.recaptchaVerifier = new RecaptchaVerifier(
+        auth,
+        "recaptcha-container",
+        {
+          size: "invisible",
+          callback: (response) => {
+            onSignup();
+          },
+          "expired-callback": () => {},
+        },
+        auth
+      );
+    }
+  }
+
+  function onSignup() {
+    setLoading(true);
+    onCaptchVerify();
+
+    const appVerifier = window.recaptchaVerifier;
+
+    const formatPh = "+" + ph;
+    signInWithPhoneNumber(auth, formatPh, appVerifier)
+      .then((confirmationResult) => {
+        window.confirmationResult = confirmationResult;
+        setLoading(false);
+        setShowOTP(true);
+        toast.success("OTP sended successfully!");
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+      });
+  }
+
+  function onOTPVerify() {
+    setLoading(true);
+    window.confirmationResult
+      .confirm(otp)
+      .then(async (res) => {
+        setUser(res.user);
+        setLoading(false);
+        Navigate("/Home");
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
+  }
   const handleSubmission = () => {
     if (!values.name || !values.email || !values.pass) {
       setErrorMsg("Fill all fields");
@@ -52,13 +120,12 @@ function Signup() {
             setValues((prev) => ({ ...prev, name: event.target.value }))
           }
         />
-        <InputControl
-          label="Email"
-          placeholder="Enter email address"
-          onChange={(event) =>
-            setValues((prev) => ({ ...prev, email: event.target.value }))
-          }
-        />
+        {/* <div className="phone-img">
+          <BsTelephoneFill size={30}></BsTelephoneFill>
+        </div> */}
+        <div className=' className="phone"'>
+          <PhoneInput country={"in"} value={ph} onChange={setPh}></PhoneInput>
+        </div>
         <InputControl
           label="Password"
           placeholder="Enter password"
@@ -69,17 +136,59 @@ function Signup() {
 
         <div className={styles.footer}>
           <b className={styles.error}>{errorMsg}</b>
-          <button onClick={handleSubmission} disabled={submitButtonDisabled}>
-            Signup
+          <button onClick={onSignup}>
+            {loading && <CgSpinner size={20} />}
+            <span>Send Code Via SMS</span>
           </button>
           <p>
             Already have an account?{" "}
             <span>
-              <Link to="/login">Login</Link>
+              <Link to="/">Login</Link>
             </span>
           </p>
         </div>
       </div>
+      <section>
+        <div>
+          <Toaster toastOptions={{ duration: 4000 }} />
+          <div id="recaptcha-container"></div>
+          {user ? (
+            <>
+              <h2>Login Success</h2>
+              <Link to={"/Home"} />
+            </>
+          ) : (
+            <div>
+              {showOTP ? (
+                <>
+                  <div>
+                    <BsFillShieldLockFill size={30}></BsFillShieldLockFill>
+                  </div>
+                  <label htmlFor="otp">Enter your OTP</label>
+                  <OtpInput
+                    value={otp}
+                    onChange={setOtp}
+                    OTPLength={6}
+                    otpType="number"
+                    disabled={false}
+                    autoFocus
+                  ></OtpInput>
+                  <button onClick={onOTPVerify}>
+                    {loading && <CgSpinner size={20} />}
+                    <span>Verify OTP</span>
+                  </button>
+                </>
+              ) : (
+                <>
+                  {/* <label htmlFor=''>Enter Your Phone Number</label> */}
+
+                  <br />
+                </>
+              )}
+            </div>
+          )}
+        </div>
+      </section>
     </div>
   );
 }

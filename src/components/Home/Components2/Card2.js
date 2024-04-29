@@ -3,7 +3,7 @@ import React from 'react';
 const Card2 = () => {
   return (
     <div style={containerStyle}>
-      
+      <h1 style={{marginRight:"500px" , fontSize:"50px" , marginBottom:"50px"}}>Features</h1>
       <div style={rowStyle}>
         <div style={sideBySideCardStyle}>
           <h2 style={{ color: '#7247CE' , textAlign:"center"}}>Workout Plan</h2>

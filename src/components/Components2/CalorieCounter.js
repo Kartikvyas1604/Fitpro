@@ -63,12 +63,20 @@ function CalorieCounter() {
       <div style={{ paddingLeft: "480px", paddingTop: "30px" }}>
         <label
           htmlFor="foodName"
-          style={{ paddingRight: "10px", fontWeight: "700", fontSize: "22px" }}
+          style={{
+            paddingRight: "10px",
+            fontWeight: "700",
+            fontSize: "22px",
+            paddingLeft: "70px",
+          }}
         >
           Food:
         </label>
         <TextField
           height="76px"
+          style={{
+            paddingLeft: "70px",
+          }}
           sx={{
             input: { fontWeight: "700", border: "none", borderRadius: "4px" },
             width: { lg: "400px", xs: "350px" },
