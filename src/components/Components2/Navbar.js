@@ -7,6 +7,7 @@ import Home from "../Home/Home";
 import WpApp from "../MainExePage/App";
 import BMICalculator from "./bmicalculator";
 import CalorieCounter from "./CalorieCounter";
+import MealPlanner from "./Mealplanner"
 
 import Logo from "../../assets/images/Logo.png";
 
@@ -72,9 +73,9 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <Link className="dropdown-item" to="/MealPlanner">
                     Meal-Planner
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </li>

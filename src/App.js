@@ -12,12 +12,14 @@ import CalorieCounter from "./components/Components2/CalorieCounter";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
 import WpApp from "./components/MainExePage/App";
+import MealPlanner from "./components/Components2/Mealplanner"
 
 const App = () => (
   <Box width="400px" sx={{ width: { xl: "1488px" } }} m="auto">
     <Navbar />
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/MealPlanner" element={<MealPlanner />} />
       <Route path="/WpApp" element={<WpApp />} />
       <Route path="/Individualexe" element={<Individualexe />} />
       <Route path="/exercise/:id" element={<ExerciseDetail />} />

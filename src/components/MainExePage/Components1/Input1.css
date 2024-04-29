@@ -1,19 +1,19 @@
 .input-feild{
-    padding-left: 40%;
+    margin-left: 40%;
 }
 
 form{
-    padding-top: 100px;
+    margin-top: 100px;
 }
 
 h1{
-    padding-left: 40%;;
+    margin-left: 40%;;
 }
 
 select{
     width: 25%;
     height: 50%;
-    padding-right: 20px;
+    margin-right: 20px;
 }
 
 label{
@@ -21,5 +21,5 @@ label{
 }
 
 .time,.equip,.muscles,.fit-lev,.goal{
-    padding-bottom: 10px;
+    margin-bottom: 10px;
 }
