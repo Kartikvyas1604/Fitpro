@@ -1,10 +1,19 @@
 // Input.jsx
 import React, { useContext } from "react";
 import { WorkoutContext } from "./WorkoutContext";
-import './Input1.css'
-import { TextField } from "@mui/material"
+import "./Input1.css";
+import { TextField } from "@mui/material";
 
-const timeOptions = ["", "10 min", "15 min", "20 min", "25 min", "30 min" , "35 min" , "40 min"];
+const timeOptions = [
+  "0 min",
+  "10 min",
+  "15 min",
+  "20 min",
+  "25 min",
+  "30 min",
+  "35 min",
+  "40 min",
+];
 
 const Input = () => {
   const {
@@ -55,7 +64,7 @@ const Input = () => {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": '2c35e2af3fmsh38a6733eadb7e41p1dd52ajsn94aecce0f79f',
+        "X-RapidAPI-Key": "216334de1emsh81523155482aa5dp19ab59jsnf1b6dc0615fa",
         "X-RapidAPI-Host": "workout-planner1.p.rapidapi.com",
       },
     };
@@ -86,9 +95,8 @@ const Input = () => {
       </div>
       <div className="input-feild equip">
         <label>Select Equipments:</label>
-        <select value={equipments} onChange={Equipments} 
-        >
-          <option value="">None</option>
+        <select value={equipments} onChange={Equipments}>
+          <option value="None">None</option>
           <option value="dumbbells">Dumbbells</option>
           <option value="Punching Bag">Punching Bag</option>
           <option value="Pull Up Bar">Pull Up Bar</option>
@@ -135,20 +143,22 @@ const Input = () => {
         </select>
       </div>
       <div className="input-feild">
-      <button type="submit" disabled={loading}
-       style={{
-        textDecoration: "none",
-        width: "400px",
-        textAlign: "center",
-        background: "#7247CE",
-        fontSize: "22px",
-        textTransform: "none",
-        color: "white",
-        borderRadius: "8px",
-      }}
-      >
-        Submit
-      </button>
+        <button
+          type="submit"
+          disabled={loading}
+          style={{
+            textDecoration: "none",
+            width: "400px",
+            textAlign: "center",
+            background: "#7247CE",
+            fontSize: "22px",
+            textTransform: "none",
+            color: "white",
+            borderRadius: "8px",
+          }}
+        >
+          Submit
+        </button>
       </div>
     </form>
   );

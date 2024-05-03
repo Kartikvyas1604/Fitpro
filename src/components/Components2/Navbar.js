@@ -15,9 +15,8 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light-emphasis fs-4">
       <div className="container-fluid">
-        <img src={Logo} alt="Logo" />
         <Link className="navbar-brand fs-4" to="/Home">
-          Fit-Pro
+          FITPRO
         </Link>
         <button
           className="navbar-toggler"

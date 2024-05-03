@@ -140,12 +140,6 @@ function Signup() {
             {loading && <CgSpinner size={20} />}
             <span>Send Code Via SMS</span>
           </button>
-          <p>
-            Already have an account?{" "}
-            <span>
-              <Link to="/">Login</Link>
-            </span>
-          </p>
         </div>
       </div>
       <section>

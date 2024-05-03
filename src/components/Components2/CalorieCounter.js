@@ -37,6 +37,12 @@ const foodData = [
   { name: "butter naan", calories: 25 },
   { name: "tandori roti", calories: 200 },
   { name: "gulab jamun", calories: 120 },
+  { name: "aloo matar", calories: 190 },
+  { name: "panner paratha", calories: 350 },
+  { name: "roti", calories: 30 },
+  { name: "pulao", calories: 350 },
+  { name: "chole", calories: 200 },
+  { name: "gobi paratha", calories: 250 },
 ];
 
 function CalorieCounter() {

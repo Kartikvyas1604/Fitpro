@@ -17,7 +17,7 @@ const PCard = () => {
         Silver
       </p>
       <div class="price-container">
-        <span>$</span>1
+        <span>₹</span>1
         <span>/mo</span>
       </div>
     </div>
@@ -78,7 +78,7 @@ const PCard = () => {
         Gold
       </p>
       <div class="price-container">
-        <span>$</span>10
+        <span>₹</span>10
         <span>/mo</span>
       </div>
     </div>
@@ -139,7 +139,7 @@ const PCard = () => {
       Platinum
       </p>
       <div class="price-container">
-        <span>$</span>100
+        <span>₹</span>100
         <span>/mo</span>
       </div>
     </div>

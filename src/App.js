@@ -25,8 +25,8 @@ const App = () => (
       <Route path="/exercise/:id" element={<ExerciseDetail />} />
       <Route path="/bmicalculator" element={<BMICalculator />} />
       <Route path="/CalorieCounter" element={<CalorieCounter />} />
-      <Route path="/" element={<Login />} />
-      <Route path="/Signup" element={<Signup />} />
+      <Route path="/" element={<Signup />} />
+      {/* <Route path="/Signup" element={<Signup />} /> */}
     </Routes>
   </Box>
 );
